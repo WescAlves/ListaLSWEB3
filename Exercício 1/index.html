@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Exercício 01:</h1>
+    <p>Crie um novo projeto com uma página que tenha 1 campo de texto e 1 campo do tipo "datetime-local" e 1 botão com o rótulo "Adicionar". 
+        O usuário deve digitar o nome de um evento e selecionar em que horário esse evento (um objeto com os valores selecionados) vai ocorrer. 
+        Ao clicar em adicionar, deve ser mostrado na tela a lista de eventos em ordem cronológica, utilizem o método sort de array. 
+        Para facilitar o trabalho de mostrar os eventos na tela, veja o método replaceChildren()</p>
+
+    <input type="text" placeholder="Evento" id="inputEvento">
+    <input type="datetime-local" name="time" id="inputTime" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}">
+    <button id="addButton">Adicionar</button>
+    <ul id="lista"></ul>
+
+    <script src="script.js"></script>
+</body>
+</html>
