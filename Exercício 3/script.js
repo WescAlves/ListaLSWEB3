@@ -56,7 +56,9 @@ btn.addEventListener("click", () => {
         }
         td3.textContent = saldo;
         tr.appendChild(td3)
-    
+        
+        inputValor.value=''
+        inputDescricao.value=''
 
         aux++;
     })
