@@ -1,7 +1,6 @@
 const inputName = document.querySelector("#name");
 const inputDoc = document.querySelector("#doc");
-const form = document.querySelector("form");
-let lista = document.querySelector("ul");
+let lista = document.querySelector("#div");
 let btn = document.querySelector("#btn");
 let array = [];
 let funcSacar = function(saldo){
@@ -19,7 +18,7 @@ class clienteBanco  {
         this.saldo = saldo;
     } 
 }
-btn.addEventListener("click", function(){
+btn.addEventListener("click", () => {
     nome = inputName.value;
     documento = inputDoc.value;
     saldo = 0;
@@ -27,30 +26,34 @@ btn.addEventListener("click", function(){
     array.push(novoCliente);
     lista.innerHTML = '';
     array.forEach(cliente => {
-        novoItem = document.createElement("li");
-        lista.appendChild(novoItem);
-        novoItem.textContent = `Cliente: ${cliente.nome} | Documento: ${cliente.documento} | Saldo: ${cliente.saldo}   `
+        let novoNome = document.createElement("p");
+        let novoDoc =  document.createElement("p");
+        let novoSaldo = document.createElement("p");
+        lista.appendChild(novoNome);
+        novoNome.textContent = `Cliente: ${cliente.nome}`;
+        lista.appendChild(novoDoc);
+        novoDoc.textContent = `Documento: ${cliente.documento}`;
+        lista.appendChild(novoSaldo);
+        novoSaldo.textContent = `Saldo: ${cliente.saldo}`;
+        let divBtn = document.createElement("p");
         let buttonSacar = document.createElement("button")
         let buttonDepositar = document.createElement("button");
         buttonSacar.textContent = "Sacar 100";
         buttonDepositar.textContent = "Depositar 100";
-        novoItem.appendChild(buttonSacar);
-        novoItem.appendChild(buttonDepositar);
+        lista.appendChild(buttonSacar);
+        lista.appendChild(buttonDepositar);
         buttonSacar.addEventListener("click", function(){
             saldo = funcSacar(cliente.saldo);
             cliente.saldo = saldo;
             console.log(saldo);
-            novoItem.textContent = `Cliente: ${cliente.nome} | Documento: ${cliente.documento} | Saldo: ${cliente.saldo}`
-            novoItem.appendChild(buttonSacar);
-            novoItem.appendChild(buttonDepositar);
+            novoSaldo.textContent = `Saldo: ${cliente.saldo}`;
+    
         })
         buttonDepositar.addEventListener("click", function(){
             saldo = funcDepositar(cliente.saldo);
             cliente.saldo = saldo;
             console.log(saldo);
-            novoItem.textContent = `Cliente: ${cliente.nome} | Documento: ${cliente.documento} | Saldo: ${cliente.saldo}`
-            novoItem.appendChild(buttonSacar);
-            novoItem.appendChild(buttonDepositar);
+            novoSaldo.textContent = `Saldo: ${cliente.saldo}`;
         })
     });
 })
